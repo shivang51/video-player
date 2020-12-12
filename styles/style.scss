@@ -1,0 +1,141 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+}
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:white;
+    background:rgb(30,30,30);
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    justify-content: center;
+}
+
+header{
+    background-color: rgb(45,45,45);
+    padding:3px 0 5px 0;
+
+    .topbar{
+        display: inline-flex;
+        width: 100%;
+        height: fit-content;
+        padding: 5px;
+
+        h2{
+            margin: auto 5px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hcontrols{
+            flex:1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hcontrols-ic{
+
+            $hcontrols-bg:rgba(0,0,0,.2);
+
+            display: flex;
+            background: $hcontrols-bg;
+            border-radius: 5px;
+            border: 2px solid $hcontrols-bg;
+
+            .brw_btn{
+                position: relative;
+                margin: auto 0;
+
+                button{
+                    font-family:Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-size: .9rem;
+                    font-weight: 300;
+                    height: 30px;
+                    width: 100px;
+                    outline: none;
+                    background: $hcontrols-bg;
+                    color: rgba(255,255,255,.5);
+
+                    &:hover{
+                        color: white;
+                    }
+                }
+            }
+
+            .search_container{
+                position: relative;
+
+                #search_tb{    
+                    background: rgb(40,40,40);
+                    width: 30vw;
+                    color:white;
+                    caret-color: lightseagreen;
+                    font-weight: 400;
+                    font-size: 1rem;
+                    padding:2px;
+                }
+                
+                .search-results-c{
+                    background: rgba(45,45,45,0.9);
+                    position: absolute;
+                    max-width: 30vw;
+                    width: 30vw;
+                    max-height: 30vh;
+                    z-index: +5;
+                    top: 32px;
+                    word-break: break-all;
+                    padding: 2px;
+                    overflow-y: auto;
+                    visibility: hidden;                
+                    &::-webkit-scrollbar{
+                        display: none;
+                    }
+
+                    .search-result{
+                        color: white;
+                        font-size: 1.05rem;
+                        padding: 4px;
+                        cursor: pointer;
+                    
+                        &:hover{
+                            background-color: rgba(255, 255, 255, 0.2);
+                        }
+                    }
+
+                    .active{
+                        background-color: rgba(255, 255, 255, 0.2);
+                    }
+
+                }
+                
+            }
+        }
+
+    }
+}
+
+.preview-video{
+    max-height: 100px;
+    max-width: 150px;
+}
+
+@import '_main.scss';
+
+.main-c2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-items: center;
+    padding: 5px;
+    flex: 1;
+
+    h6{
+        position: relative;
+        left:-42px;
+    }
+}
