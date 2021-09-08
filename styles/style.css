@@ -1,0 +1,859 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+  background: #1e1e1e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header {
+  background-color: #2d2d2d;
+  padding: 3px 0 5px 0;
+}
+
+header .topbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .topbar h2 {
+  margin: auto 5px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 400;
+  background: -webkit-gradient(linear, left top, right top, from(teal), to(yellow));
+  background: linear-gradient(to right, teal 0%, yellow 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header .topbar h2:hover {
+  background: -webkit-gradient(linear, right top, left top, from(teal), to(pink));
+  background: linear-gradient(to left, teal 0%, pink 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+header .topbar .hcontrols {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header .topbar .hcontrols-ic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 5px;
+  border: 3px solid rgba(0, 0, 0, 0.3);
+}
+
+header .topbar .hcontrols-ic .brw_btn {
+  position: relative;
+  margin: auto 0;
+}
+
+header .topbar .hcontrols-ic .brw_btn button {
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  height: 30px;
+  width: 100px;
+  outline: none;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+header .topbar .hcontrols-ic .brw_btn button:hover {
+  color: pink;
+}
+
+header .topbar .hcontrols-ic .search_container {
+  position: relative;
+}
+
+header .topbar .hcontrols-ic .search_container #search_tb {
+  background: #2d2d2d;
+  width: 30vw;
+  color: white;
+  caret-color: lightseagreen;
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 2px;
+}
+
+header .topbar .hcontrols-ic .search_container .search-results-c {
+  background: #401a39bf;
+  position: absolute;
+  max-width: 30vw;
+  width: 30vw;
+  max-height: 30vh;
+  z-index: +5;
+  top: 32px;
+  word-break: break-all;
+  padding: 10px;
+  overflow-y: auto;
+  visibility: hidden;
+  border-radius: 0 0 5px 5px;
+}
+
+header .topbar .hcontrols-ic .search_container .search-results-c::-webkit-scrollbar {
+  display: none;
+}
+
+header .topbar .hcontrols-ic .search_container .search-results-c .search-result {
+  color: white;
+  font-size: 1.05rem;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+header .topbar .hcontrols-ic .search_container .search-results-c .search-result:hover {
+  background-color: rgba(128, 21, 119, 0.4);
+}
+
+header .topbar .hcontrols-ic .search_container .search-results-c .active {
+  background-color: rgba(128, 21, 119, 0.6);
+}
+
+header .topbar .hcontrols-ic .search_container .search-results-c .active:hover {
+  background-color: rgba(128, 21, 119, 0.6);
+}
+
+header .topbar .corner-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+}
+
+header .topbar .corner-controls .playlist {
+  margin: 0 5px;
+  position: relative;
+}
+
+header .topbar .corner-controls .playlist #icon {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+header .topbar .corner-controls .playlist:hover {
+  cursor: pointer;
+}
+
+header .topbar .corner-controls .playlist:hover #icon {
+  color: teal;
+}
+
+header .topbar .corner-controls .playlist:hover .playlist-container {
+  visibility: visible;
+}
+
+header .topbar .corner-controls .playlist .playlist-container {
+  position: absolute;
+  background-color: #2d2d2d;
+  padding: 5px;
+  width: 250px;
+  right: 0px;
+  border-radius: 5px;
+  visibility: hidden;
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: context-menu;
+}
+
+header .topbar .corner-controls .playlist .playlist-container::-webkit-scrollbar {
+  background: black;
+  width: 9px;
+}
+
+header .topbar .corner-controls .playlist .playlist-container::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 5px;
+}
+
+header .topbar .corner-controls .playlist .playlist-container::-webkit-scrollbar-thumb {
+  background: #367bf0;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+header .topbar .corner-controls .playlist .playlist-container::-webkit-scrollbar-thumb:hover {
+  background: grey;
+}
+
+header .topbar .corner-controls .playlist .playlist-container .playlist-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  padding: 5px;
+  border-bottom: 1px solid #141414;
+}
+
+header .topbar .corner-controls .playlist .playlist-container .playlist-item h4 {
+  font-size: 15px;
+}
+
+header .topbar .corner-controls .playlist .playlist-container .playlist-item #title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+header .topbar .corner-controls .playlist .playlist-container .playlist-item .controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .topbar .corner-controls .playlist .playlist-container .playlist-item .controls #size {
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+header .topbar .corner-controls .playlist .playlist-container .playlist-item .controls button {
+  background: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+header .topbar .corner-controls .playlist .playlist-container .playlist-item .controls button:hover {
+  color: white;
+}
+
+header .topbar .corner-controls .playlist .playlist-container .playlist-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+header .topbar .corner-controls .playlist .playlist-container .new-playlist-item {
+  margin: 3px 0;
+  padding: 5px;
+}
+
+header .topbar .corner-controls .playlist .playlist-container .new-playlist-item #new-playlist-title {
+  background-color: #141414;
+  padding: 5px;
+  color: white;
+  caret-color: white;
+}
+
+header .topbar .corner-controls .playlist .playlist-container .new-playlist-item button {
+  background: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+header .topbar .corner-controls .playlist .playlist-container .new-playlist-item button:hover {
+  color: white;
+}
+
+header .topbar .corner-controls .settings {
+  margin: 0 5px;
+}
+
+header .topbar .corner-controls .settings #icon {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+header .topbar .corner-controls .settings:hover {
+  cursor: pointer;
+}
+
+header .topbar .corner-controls .settings:hover #icon {
+  color: white;
+}
+
+.preview-video {
+  max-height: 100px;
+  max-width: 150px;
+}
+
+.main-c {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  text-align: -webkit-left;
+  overflow: hidden;
+  visibility: hidden;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow-y: auto;
+  padding: 5px;
+}
+
+.main-c::-webkit-scrollbar {
+  background: black;
+  width: 9px;
+}
+
+.main-c::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 5px;
+}
+
+.main-c::-webkit-scrollbar-thumb {
+  background: #367bf0;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.main-c::-webkit-scrollbar-thumb:hover {
+  background: grey;
+}
+
+.main-c .left_container {
+  float: left;
+  padding: 5px;
+  padding-right: 20px;
+}
+
+.main-c .left_container .vid-c {
+  min-width: 55vw;
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: -webkit-center;
+  background: black;
+  overflow: hidden;
+}
+
+.main-c .left_container .vid-c .main-video {
+  max-height: 72vh;
+  max-width: 100vw;
+  outline: none;
+  display: block;
+  background: black;
+}
+
+.main-c .left_container .vid-c .video-fs {
+  max-height: 100vh;
+  width: 100%;
+  height: 100vh;
+}
+
+.main-c .left_container .vid-c video::-webkit-media-controls {
+  display: none;
+}
+
+.main-c .left_container .vid-c .controls-background {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADCCAYAAACIaaiTAAABEklEQVQ4T2XI10cFAACF8dvee++67b33uM17b1MkkSSSSBJJJIkkkkQSSSKJ9EfmOw/npfPw8zmBwL/F8IhYE0eJeJNAiUSTRIlkk0KJVEgz6ZTIMJmUyDLZlMgxuZTIM/mUKDCFlCgyxZQoMaWUKDPllKiASlNFiWpTQ4mgqaVEnamnRINppESTaaZEi2mlRJtpp0SH6aREF3SbHkr0mj5K9JsBSgyaIUoMmxFKjJoxSoybCUqEzCQlpsw0JWZg1sxRImwilIiaeUosmEVKLJllagVWYQ3WYQM2YQu2YQd2YQ/24QAO4QiO4QRO4QzO4QIu4Qqu4QZu4Q7u4QEe4Qme4QVe4Q3e4QM+4Qu+4Qd+/wChESsSLtRzxQAAAABJRU5ErkJggg==");
+  background-size: 100% 100%;
+}
+
+.main-c .left_container .vid-c .controls {
+  position: absolute;
+  text-align: left;
+  width: 100%;
+  bottom: 0;
+  z-index: +1;
+  padding: 5px 12px 5px 12px;
+}
+
+.main-c .left_container .vid-c .controls .lc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.main-c .left_container .vid-c .controls .rc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: auto 0 0 0;
+}
+
+.main-c .left_container .vid-c .controls .rc button:hover {
+  cursor: pointer;
+}
+
+.main-c .left_container .vid-c .controls .time-e,
+.main-c .left_container .vid-c .controls .p-time-e,
+.main-c .left_container .vid-c .controls .time-d {
+  font-size: 0.9rem;
+}
+
+.main-c .left_container .vid-c .controls .preview {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  left: 50%;
+  padding: 10px;
+  visibility: hidden;
+  position: absolute;
+}
+
+.main-c .left_container .vid-c .controls .preview canvas {
+  width: 150px;
+  height: 100px;
+  background: black;
+  border: 2px solid white;
+}
+
+.main-c .left_container .vid-c .controls .preview .time-c {
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main-c .left_container .vid-c .controls .preview .time-c .p-time-e,
+.main-c .left_container .vid-c .controls .preview .time-c .time-d {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.main-c .left_container .vid-c .controls .progress-bar {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.4);
+  text-align: left;
+  cursor: pointer;
+}
+
+.main-c .left_container .vid-c .controls .progress-bar:hover {
+  height: 6px;
+}
+
+.main-c .left_container .vid-c .controls .progress-bar .progress {
+  position: relative;
+  width: 0%;
+  height: 100%;
+  background-color: red;
+}
+
+.main-c .left_container .vid-c .controls button {
+  margin: 3px;
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  position: relative;
+  top: 5px;
+}
+
+.main-c .left_container .vid-c .controls .oneline-c {
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.main-c .left_container .vid-c .controls .oneline-c .shuffle,
+.main-c .left_container .vid-c .controls .oneline-c .repeat,
+.main-c .left_container .vid-c .controls .oneline-c .next {
+  margin: auto 5px;
+  position: relative;
+  top: 5px;
+}
+
+.main-c .left_container .vid-c .controls .oneline-c .shuffle:hover,
+.main-c .left_container .vid-c .controls .oneline-c .repeat:hover,
+.main-c .left_container .vid-c .controls .oneline-c .next:hover {
+  cursor: pointer;
+}
+
+.main-c .left_container .vid-c .controls .oneline-c,
+.main-c .left_container .vid-c .controls .volume-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-c .left_container .vid-c .controls .volume-bar {
+  position: absolute;
+  visibility: hidden;
+  margin-right: 4px;
+  margin-top: 20px;
+  width: 100px;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.3);
+  text-align: left;
+  cursor: pointer;
+}
+
+.main-c .left_container .vid-c .controls .volume-bar .volume {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background-color: red;
+}
+
+.main-c .left_container .vid-c .controls .volume-container:hover .volume-bar {
+  position: relative;
+  visibility: visible;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.main-c .left_container .vid-c .controls .time-c {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  position: relative;
+  top: 10px;
+}
+
+.main-c .left_container .vid-c .volume-percent-c {
+  width: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 10%;
+  visibility: hidden;
+}
+
+.main-c .left_container .vid-c .volume-percent-c .volume-percent {
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.main-c .left_container .vid-c .hide-controls {
+  -webkit-transform: translateY(100%) translateY(6px);
+          transform: translateY(100%) translateY(6px);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.main-c .left_container .main-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  padding: 10px;
+  width: 100%;
+  max-width: 750px;
+  word-break: break-all;
+}
+
+.main-c .left_container .main-title h2 {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.main-c .left_container_xs {
+  width: 100vw;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main-c .right_container {
+  margin: 5px 0px 0px 5px;
+  float: left;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 94%;
+  background: none;
+  margin-bottom: 8px;
+}
+
+.main-c .right_container .top {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.main-c .right_container .playlist-container {
+  max-width: 100%;
+  padding: 5px;
+  max-height: 80vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  border-radius: 8px;
+  border: 2px solid #364e52;
+}
+
+.main-c .right_container .playlist-container .playlist-song {
+  margin: 3px 5px 3px 0;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 100%;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+.main-c .right_container .playlist-container .playlist-song:hover {
+  background: #bd3c786e;
+  border-color: rgba(189, 7, 226, 0.788);
+}
+
+.main-c .right_container .playlist-container .playlist-song canvas {
+  background: black;
+  width: 168px;
+  height: 94px;
+  border: 2px solid white;
+  scroll-behavior: smooth;
+}
+
+.main-c .right_container .playlist-container .playlist-song .playlist-song-title {
+  margin: auto;
+  padding: 3px 10px;
+  word-break: break-all;
+  cursor: context-menu;
+  max-height: 80px;
+  overflow: hidden;
+}
+
+.main-c .right_container .playlist-container .playlist-song .playlist-song-title h4 {
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  font-weight: 500;
+}
+
+.main-c .right_container .playlist-container .playlist-song .extra {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  padding: 2px 5px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.main-c .right_container .playlist-container .playlist-song .extra .menu {
+  position: absolute;
+  visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-c .right_container .playlist-container .playlist-song .extra .menu * {
+  padding: 2px;
+  margin: auto;
+}
+
+.main-c .right_container .playlist-container .playlist-song .extra .menu .remove-btn {
+  color: rgba(255, 255, 255, 0.7);
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.main-c .right_container .playlist-container .playlist-song .extra .menu .remove-btn:hover {
+  color: red;
+}
+
+.main-c .right_container .playlist-container .playlist-song .extra:hover {
+  color: white;
+  background-color: rgba(158, 9, 41, 0.822);
+}
+
+.main-c .right_container .playlist-container .playlist-song .extra:hover .menu {
+  position: relative;
+  visibility: visible;
+  margin: auto;
+  margin-right: 10px;
+  -webkit-transition: margin 0.5s;
+  transition: margin 0.5s;
+}
+
+.main-c .right_container .playlist-container .playing {
+  border: 2px solid;
+  background: inherit;
+  color: white;
+  border-color: #0ceeee;
+  overflow: hidden;
+  background: #72284a6e;
+}
+
+.main-c .right_container .playlist-container .playing:hover {
+  background: #bd3c786e;
+  border-color: #0ceeee;
+}
+
+.main-c .right_container .playlist-container::-webkit-scrollbar {
+  background: black;
+  width: 15px;
+}
+
+.main-c .right_container .playlist-container::-webkit-scrollbar-track {
+  background: black;
+  padding: 5px;
+}
+
+.main-c .right_container .playlist-container::-webkit-scrollbar-thumb {
+  background: #181818;
+  border: 2px solid black;
+}
+
+.main-c .right_container .playlist-container::-webkit-scrollbar-thumb:hover {
+  background: grey;
+}
+
+.main-c .right_container .playlist-container-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main-c .right_container .playlist-container-card .playlist-song {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 200px;
+  height: 200px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+.main-c .right_container .playlist-container-card .playlist-song h4 {
+  max-height: 60px;
+}
+
+.main-c2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  place-items: center;
+  padding: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.main-c2 h6 {
+  position: relative;
+  left: -42px;
+}
+
+.add-playlist-location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+          box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+  display: none;
+}
+
+.add-playlist-location .locations {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.add-playlist-location .locations h4 {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 24px;
+  padding: 5px;
+}

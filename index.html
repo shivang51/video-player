@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JPlayer</title>
+
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="./icon.ico">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+</head>
+<body >
+    <header>
+        <div class="topbar">
+            <h2 onclick="location.reload();">JPlayer</h2>
+            <div class="hcontrols">
+                <div class="hcontrols-ic">
+                    <div class="search_container">
+                        <input type="text" id="search_tb" placeholder="Search" tabindex="-1">
+                        <div class="search-results-c"></div>
+                    </div>
+                    <div class="brw_btn">    
+                        <input type="file" id="filebrowser" style="display: none;" multiple>
+                        <button onclick="document.getElementById('filebrowser').click();">Browse</button>
+                    </div>
+                </div>
+            </div>
+            <div class="corner-controls">
+                <div class="playlist" title="Playlists">
+                    <i class="fas fa-list" id="icon"></i>
+                    <div style="display: none;">
+                        <div class="saved-playlist-container">
+                            <div class="new-playlist-item">
+                                <input type="text" id="new-playlist-title" autocomplete="off" placeholder="New">
+                                <button id="add-button" title="Add New Playlist">Add</button>
+                            </div>
+                            <div class="playlist-item">
+                                <h4 id="title">Test Title</h4>
+                                <div class="controls">
+                                    <h4 id="size">100 Songs</h4>
+                                    <button id="add-button" title="Add Songs">Add Songs</button>
+                                </div>
+                            </div>
+                            <div class="playlist-item">
+                                <h4 id="title">Test Title</h4>
+                                <div class="controls">
+                                    <h4 id="size">100 Songs</h4>
+                                    <button id="add-button" title="Add Songs">Add Songs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings" title="Settings">
+                    <i class="fas fa-cog" id="icon"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-c2">
+        <h4>Just Press Browse</h4>
+        <p>And enjoy your local music easily.</p>
+        <p>
+            <h6>Some Basic Controls:</h6>
+                s = Toogle Shuffle<br>
+                r = Toogle Repeat<br>
+                n = Play next<br>
+                Space = Toogle Play-Pause<br>
+                Right-Arrow = Forward 5s<br>
+                Left-Arrow = Rewind 5s<br>
+                Up-Arrow = Volume Up<br>
+                Down-Arrow = Volume Down<br>
+        </p>
+    </div>
+
+    <div class="main-c">
+
+        <div class="left_container">
+            <div class="vid-c" ondblclick="enterfullscreen()">
+                <video class="main-video" poster tabindex="-1" autoplay></video>
+
+                <div class="volume-percent-c">
+                    <div class="volume-percent">100%</div>
+                </div>
+    
+                <div class="controls controls-background hide-controls">
+                    <div class="preview">
+                        <div class="preview-img-c">
+                            <canvas class="preview-img"></canvas>
+                        </div>
+                        <div class="time-c">
+                            <h4 class="p-time-e">00</h4>
+                            <h4 class="time-d">/00</h4>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="oneline-c">
+                        <div class="lc">
+                            <button class="play_pause" onclick="toogle_play_pause()"><i class="fas fa-play"></i></button>
+                            <div class="volume-container">
+                                <button class="volume_btn" onclick="toogle_mute()"><i class="fas fa-volume-up"></i></button>
+                                <div class="volume-bar">
+                                    <div class="volume"></div>
+                                </div>
+                            </div>
+                            <div class="next">
+                                <i class="fas fa-forward"></i>
+                            </div>
+                            <div class="shuffle">
+                                <i class="fas fa-random"></i>
+                            </div>
+                            <div class="repeat">
+                                <i class="fas fa-redo-alt"></i>
+                            </div>
+                            <div class="time-c">
+                                <h4 class="time-e">00</h4>
+                                <h4 class="time-d">/00</h4>
+                            </div>
+                        </div>
+                        <div class="rc">
+                            <button class="fullScreen" onclick="enterfullscreen()">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-title">
+                <h2></h2>
+            </div>
+        </div>
+
+        <div class="right_container">
+            <div class="top">
+                <h3 style="font-size: 1.2rem;"></h3>
+            </div>
+            <div class="playlist-container">
+            </div>
+        </div>
+    </div>
+
+    <div class="add-playlist-location">
+        <div class="locations">
+            <h4>Add from loaded songs</h4>
+            <h4>Add from other location</h4>
+        </div>
+    </div>
+    
+    <script src="scripts/script1.js"></script>
+    <script src="scripts/script2.js"></script>
+</body>
+</html>

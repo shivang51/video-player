@@ -1,0 +1,307 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+  background: rgb(30, 30, 30);
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  justify-content: center;
+}
+
+header {
+  background-color: rgb(45, 45, 45);
+  padding: 3px 0 5px 0;
+
+  .topbar {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    padding: 5px;
+    align-items: center;
+
+    h2 {
+      margin: auto 5px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      font-weight: 400;
+      background: linear-gradient(to right, teal 0%, yellow 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      &:hover{
+        background: linear-gradient(to left, teal 0%, pink 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+      }
+    }
+
+    .hcontrols {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hcontrols-ic {
+      $hcontrols-bg: rgba(0, 0, 0, 0.3);
+
+      display: flex;
+      border-radius: 5px;
+      border: 3px solid $hcontrols-bg;
+
+      .brw_btn {
+        position: relative;
+        margin: auto 0;
+
+        button {
+          font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+            "Helvetica Neue", sans-serif;
+          font-size: 0.9rem;
+          font-weight: 300;
+          height: 30px;
+          width: 100px;
+          outline: none;
+          background: $hcontrols-bg;
+          color: rgba(255, 255, 255, 0.5);
+
+          &:hover {
+            color: pink;
+          }
+        }
+      }
+
+      .search_container {
+        position: relative;
+
+        #search_tb {
+          background: rgb(45, 45, 45);
+          width: 30vw;
+          color: white;
+          caret-color: lightseagreen;
+          font-weight: 400;
+          font-size: 1rem;
+          padding: 2px;
+        }
+
+        .search-results-c {
+          background: #401a39bf;
+          position: absolute;
+          max-width: 30vw;
+          width: 30vw;
+          max-height: 30vh;
+          z-index: +5;
+          top: 32px;
+          word-break: break-all;
+          padding: 10px;
+          overflow-y: auto;
+          visibility: hidden;
+          border-radius: 0 0 5px 5px;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          .search-result {
+            color: white;
+            font-size: 1.05rem;
+            padding: 4px;
+            cursor: pointer;
+            border-radius: 5px;
+
+            &:hover {
+              background-color: rgba(128, 21, 119, 0.4);
+            }
+          }
+
+          .active {
+            background-color: rgba(128, 21, 119, 0.6);
+            &:hover {
+              background-color: rgba(128, 21, 119, 0.6);
+            }
+          }
+        }
+      }
+    }
+
+    .corner-controls {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+
+      .playlist {
+        margin: 0 5px;
+        position: relative;
+
+        #icon {
+          color: rgba(255, 255, 255, 0.5);
+        }
+
+        &:hover {
+          cursor: pointer;
+          #icon {
+            color: teal;
+          }
+
+          .playlist-container {
+            visibility: visible;
+          }
+        }
+
+        .playlist-container {
+          position: absolute;
+          background-color: rgb(45, 45, 45);
+          padding: 5px;
+          width: 250px;
+          right: 0px;
+          border-radius: 5px;
+          visibility: hidden;
+          max-height: 500px;
+          overflow-y: auto;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          cursor: context-menu;
+
+          &::-webkit-scrollbar {
+            background: black;
+            width: 9px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: black;
+            border-radius: 5px;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: rgb(54, 123, 240);
+            border-radius: 5px;
+            border: 2px solid black;
+          }
+
+          &::-webkit-scrollbar-thumb:hover {
+            background: grey;
+          }
+
+          .playlist-item {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 5px;
+            border-bottom: 1px solid rgb(20, 20, 20);
+            h4 {
+              font-size: 15px;
+            }
+            #title {
+              flex: 1;
+            }
+
+            .controls {
+              display: flex;
+              justify-content: space-between;
+              #size {
+                font-weight: 200;
+                color: rgba(255, 255, 255, 0.5);
+              }
+              button {
+                background: none;
+                color: rgba(255, 255, 255, 0.5);
+                cursor: pointer;
+                &:hover {
+                  color: white;
+                }
+              }
+            }
+
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.2);
+              cursor: pointer;
+              border-radius: 5px;
+            }
+          }
+
+          .new-playlist-item {
+            margin: 3px 0;
+            padding: 5px;
+            #new-playlist-title {
+              background-color: rgb(20, 20, 20);
+              padding: 5px;
+              color: white;
+              caret-color: white;
+            }
+            button {
+              background: none;
+              color: rgba(255, 255, 255, 0.5);
+              cursor: pointer;
+              &:hover {
+                color: white;
+              }
+            }
+          }
+        }
+      }
+
+      .settings {
+        margin: 0 5px;
+
+        #icon {
+          color: rgba(255, 255, 255, 0.5);
+        }
+
+        &:hover {
+          cursor: pointer;
+          #icon {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.preview-video {
+  max-height: 100px;
+  max-width: 150px;
+}
+
+@import "_main.scss";
+
+.main-c2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
+  padding: 5px;
+  flex: 1;
+
+  h6 {
+    position: relative;
+    left: -42px;
+  }
+}
+
+.add-playlist-location {
+  display: flex;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+  display: none;
+  .locations {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    padding: 5px;
+    h4 {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 24px;
+      padding: 5px;
+    }
+  }
+}
