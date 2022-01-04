@@ -273,7 +273,6 @@
       border-radius: 8px;
       border: 2px solid #364e52;
 
-
       .playlist-song {
         margin: 3px 5px 3px 0;
         padding: 5px;
@@ -294,6 +293,7 @@
           width: 168px;
           height: 94px;
           border: 2px solid white;
+          border-radius: 10px;
           scroll-behavior: smooth;
         }
 
@@ -365,10 +365,8 @@
         color: white;
         border-color: rgb(12, 238, 238);
         overflow: hidden;
-        background: #72284a6e;
 
-        &:hover{
-          background: #bd3c786e;
+        &:hover {
           border-color: rgb(12, 238, 238);
         }
       }

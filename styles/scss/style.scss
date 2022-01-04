@@ -37,7 +37,7 @@ header {
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 
-      &:hover{
+      &:hover {
         background: linear-gradient(to left, teal 0%, pink 100%);
         background-clip: text;
         -webkit-background-clip: text;
@@ -52,10 +52,12 @@ header {
 
     .hcontrols-ic {
       $hcontrols-bg: rgba(0, 0, 0, 0.3);
+      $hcontrols-border-radius-bottom-left: 0px;
 
       display: flex;
       border-radius: 5px;
       border: 3px solid $hcontrols-bg;
+      border-bottom-left-radius: $hcontrols-border-radius-bottom-left;
 
       .brw_btn {
         position: relative;
@@ -92,18 +94,22 @@ header {
         }
 
         .search-results-c {
-          background: #401a39bf;
+          background: rgb(45, 45, 45);
           position: absolute;
-          max-width: 30vw;
-          width: 30vw;
+          max-width: 30.5vw;
+          width: 30.5vw;
+          left: -3px;
           max-height: 30vh;
           z-index: +5;
           top: 32px;
           word-break: break-all;
-          padding: 10px;
+          padding: 2px;
           overflow-y: auto;
           visibility: hidden;
           border-radius: 0 0 5px 5px;
+          border-top: 0 transparent;
+          border: 3px solid rgb(30, 30, 30);
+          transition: size 0.4s;
           &::-webkit-scrollbar {
             display: none;
           }
@@ -114,7 +120,7 @@ header {
             padding: 4px;
             cursor: pointer;
             border-radius: 5px;
-
+            transition: all 0.1s;
             &:hover {
               background-color: rgba(128, 21, 119, 0.4);
             }

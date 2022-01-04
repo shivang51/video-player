@@ -78,6 +78,7 @@ header .topbar .hcontrols-ic {
   display: flex;
   border-radius: 5px;
   border: 3px solid rgba(0, 0, 0, 0.3);
+  border-bottom-left-radius: 0px;
 }
 
 header .topbar .hcontrols-ic .brw_btn {
@@ -115,18 +116,23 @@ header .topbar .hcontrols-ic .search_container #search_tb {
 }
 
 header .topbar .hcontrols-ic .search_container .search-results-c {
-  background: #401a39bf;
+  background: #2d2d2d;
   position: absolute;
-  max-width: 30vw;
-  width: 30vw;
+  max-width: 30.5vw;
+  width: 30.5vw;
+  left: -3px;
   max-height: 30vh;
   z-index: +5;
   top: 32px;
   word-break: break-all;
-  padding: 10px;
+  padding: 2px;
   overflow-y: auto;
   visibility: hidden;
   border-radius: 0 0 5px 5px;
+  border-top: 0 transparent;
+  border: 3px solid #1e1e1e;
+  -webkit-transition: size 0.4s;
+  transition: size 0.4s;
 }
 
 header .topbar .hcontrols-ic .search_container .search-results-c::-webkit-scrollbar {
@@ -139,6 +145,8 @@ header .topbar .hcontrols-ic .search_container .search-results-c .search-result 
   padding: 4px;
   cursor: pointer;
   border-radius: 5px;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
 }
 
 header .topbar .hcontrols-ic .search_container .search-results-c .search-result:hover {
@@ -665,6 +673,7 @@ header .topbar .corner-controls .settings:hover #icon {
   width: 168px;
   height: 94px;
   border: 2px solid white;
+  border-radius: 10px;
   scroll-behavior: smooth;
 }
 
@@ -749,11 +758,9 @@ header .topbar .corner-controls .settings:hover #icon {
   color: white;
   border-color: #0ceeee;
   overflow: hidden;
-  background: #72284a6e;
 }
 
 .main-c .right_container .playlist-container .playing:hover {
-  background: #bd3c786e;
   border-color: #0ceeee;
 }
 

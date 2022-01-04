@@ -90,8 +90,9 @@ function generate_new_playlist_item() {
 
   playlist_song.addEventListener("click", () => {
     if (!rmClick) {
-      const name = playlist_song.querySelector(".playlist-song-title h4")
-        .innerText;
+      const name = playlist_song.querySelector(
+        ".playlist-song-title h4"
+      ).innerText;
       play(name);
     } else {
       rmClick = false;
@@ -234,7 +235,8 @@ file_browser.addEventListener("change", () => {
 });
 
 function search_result_click(e) {
-  play(e.toElement.innerText);
+  console.log(e);
+  play(e.target.innerText);
   video.focus();
   search_box.value = "";
   mouse = false;
@@ -267,6 +269,8 @@ search_box.addEventListener("input", (e) => {
         result.addEventListener("click", search_result_click);
       });
     }
+  } else {
+    searchResult_c.style.visibility = "hidden";
   }
 });
 
